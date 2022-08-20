@@ -54,6 +54,9 @@ func main() {
 	err = rpc.Register(new(RPCServer))
 	go app.rpcListen()
 
+	// listen for grpc
+	go app.gRPCListen()
+
 	// start webserver
 	app.serve()
 }
