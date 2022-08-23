@@ -1,4 +1,5 @@
 FRONT_END_BINARY=frontApp
+FRONT_END_BINARY_LINUX=frontAppLinux
 BROKER_BINARY=brokerApp
 AUTH_BINARY=authApp
 LOGGER_BINARY=loggerApp
@@ -59,6 +60,12 @@ build_listener:
 build_front:
 	@echo "Building front end binary..."
 	cd ../front-end && env CGO_ENABLED=0 go build -o ${FRONT_END_BINARY} ./cmd/web
+	@echo "Done!"
+
+## front_end_linux: builds linux executable for front end
+front_end_linux:
+	@echo "Building linux version of front end..."
+	cd ../front-end && env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o ${FRONT_END_BINARY_LINUX} ./cmd/web
 	@echo "Done!"
 
 ## start: starts the front end
