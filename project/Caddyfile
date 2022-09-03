@@ -21,7 +21,7 @@
 	}
 }
 
-localhost {
+localhost:80 {
 	encode zstd gzip
 	import static
 
